@@ -27,7 +27,7 @@ a.style.visibility="hidden";
 $scope.getGitHubJson=function () {
 	if ($scope.selectedItem != null){
 	if (confirm("Caricare la configurazione " + $scope.selectedItem.name) == true) {
- $http.get("https://raw.githubusercontent.com/IperBOT/FavoleBot/master/configbot.json")
+ $http.get("https://raw.githubusercontent.com/IperBOT/" + $scope.selectedItem.name + "/master/configbot.json")
     .then(function(response) {
         $scope.entity = response.data;
     });	}}
