@@ -41,7 +41,7 @@ $scope.getGitHubJson=function () {
         $scope.reps = response.data;
 	for (var i = 0; i < $scope.reps.length; i++) {
 	  var key = $scope.reps[i];
-	  if (key.name==='master' || key.name==='iperbot.github.io'){$scope.reps.splice(i,1)}
+	  if (key.name==='iperbot.github.io'){$scope.reps.splice(i,1)}
 	}		
     });
 	
