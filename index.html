@@ -88,6 +88,11 @@
 				<div class="form-group" ng-show="menu.HidePrevKeyb != null">
 					<label for="aID{{$index}}">Nasconti tasti menu precedente:</label>
 					<input type="checkbox" id="aID{{$index}}" ng-model="menu.HidePrevKeyb">
+				</div>	
+				<!--Sovrascrivi messaggio precedente-->
+				<div class="form-group" ng-show="menu.OneMessage != null">
+					<label for="aID{{$index}}">Sovrascrivi messaggio precedente (OneMessage):</label>
+					<input type="checkbox" id="aID{{$index}}" ng-model="menu.OneMessage">
 				</div>				
 				<!--Entità di tipo messaggio-->				
 				<div ng-hide="menu.Text == null||menu.Video != null||menu.Document != null||menu.Voice != null||menu.Image != null">
@@ -135,7 +140,47 @@
 						<label for="Text">ID o URL Immagine:</label>
 						<input type="text" class="form-control" id="Text" ng-model="menu.Image">
 					</div> 
+				</div>
+				<!--Ricerca POI-->				
+				<div ng-show="menu.POI != null">
+					<div class="form-group">
+						<label for="Text">Testo:</label>
+						<input type="text" class="form-control" id="Text" ng-model="menu.POI.Text">
+					</div> 
+					<div class="form-group">
+						<label for="Text">Testo POI non trovati:</label>
+						<input type="text" class="form-control" id="Text" ng-model="menu.POI.TextNoResult">
+					</div>
+					<div class="form-group">
+						<label for="Text">Numero risultati:</label>
+						<input type="text" class="form-control" id="Text" ng-model="menu.POI.MaxResult">
+					</div> 
+					<div class="form-group">
+						<label for="Text">Distanza massima:</label>
+						<input type="text" class="form-control" id="Text" ng-model="menu.POI.MaxDistance">
+					</div>
+					<div class="form-group">
+						<label for="aID{{$index}}">Visualizza distanza sul testo:</label>
+						<input type="checkbox" id="aID{{$index}}" ng-model="menu.POI.DistanceOnText">
+					</div>
+					<div class="form-group">
+						<label for="aID{{$index}}">Visualizza distanza sul tasto:</label>
+						<input type="checkbox" id="aID{{$index}}" ng-model="menu.POI.DistanceOnButton">
+					</div>  
+					<div class="form-group">
+						<label for="aID{{$index}}">Visualizza descrizione sul testo:</label>
+						<input type="checkbox" id="aID{{$index}}" ng-model="menu.POI.POITextOnText">
+					</div>
+					<div class="form-group">
+						<label for="aID{{$index}}">Visualizza descrizione sul tasto:</label>
+						<input type="checkbox" id="aID{{$index}}" ng-model="menu.POI.POITextOnButton">
+					</div>
+					<div class="form-group">
+						<label for="aID{{$index}}">Invia mappa:</label>
+						<input type="checkbox" id="aID{{$index}}" ng-model="menu.POI.SendMap">
+					</div>  					
 				</div>				
+				<!--Inserimento bottoni -->
 				<div class="panel-body">
 				<div class="panel panel-default" ng-repeat="button in menu.Button">			
 				<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#bd{{menu.ID}}{{$index}}">Tasto: {{button.Text}}</button>
